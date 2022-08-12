@@ -1,0 +1,24 @@
+.service-list {
+  ul {
+    padding: 0;
+    margin: 10px 0;
+
+    li {
+      list-style: none;
+      display: inline;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(76, 76, 76, 0.5);
+
+      &:after {
+        content: "\2022";
+        margin: 0 5px;
+      }
+
+      &:last-child:after {
+        content: none;
+      }
+    }
+  }
+}

@@ -3,7 +3,6 @@
   align-items: center;
   position: fixed;
   z-index: 10;
-  // padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
@@ -15,7 +14,7 @@
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    padding: 38px 27px;
+    padding: 30px 27px;
     width: 900px;
   }
 
@@ -23,17 +22,36 @@
     display: flex;
   }
 
+  &__point {
+    background: url("../assets/red-mappoint.png") no-repeat center;
+    background-size: contain;
+    margin: 25px 0;
+    width: 100%;
+    max-width: 95px;
+    height: 42px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    line-height: 2;
+  }
+
   &__info {
     width: 75%;
 
-    h1 {
+    h2 {
       font-size: 24px;
       line-height: 1.4;
+      margin: 5px 0;
     }
 
     &__address,
     &__distance {
       display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    &__address {
+      width: 75%;
     }
 
     &__distance {
@@ -44,12 +62,6 @@
     &__map {
       display: inline-block;
       position: relative;
-      cursor: pointer;
-      transition: 0.2s;
-
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.1);
-      }
 
       &::after {
         content: "";
@@ -58,6 +70,24 @@
         width: 100%;
         height: 2px;
         background: black;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+
+        &:hover,
+        &:active {
+          color: black;
+        }
+
+        svg {
+          width: 12px;
+          height: 12px;
+          margin-right: 10px;
+        }
       }
 
       p {
@@ -101,6 +131,26 @@
     }
   }
 
+  &__close {
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 36px;
+      right: 27px;
+      font-size: 32px;
+      width: 30px;
+      height: 30px;
+      transition: 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        color: red;
+      }
+    }
+  }
+
   &__divider {
     &::after {
       content: "";
@@ -115,12 +165,19 @@
 
   &__description {
     margin: 30px 95px;
+
+    h3 {
+      margin: 0 0 12px 0;
+      color: #4c4c4c;
+      font-weight: 500;
+    }
   }
 
   &__schedule {
     display: block;
     position: relative;
     width: 100%;
+    margin-bottom: 40px;
 
     div {
       display: inline-block;
@@ -144,8 +201,23 @@
   &__contact {
     display: block;
 
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    &__email {
+      margin-top: 20px;
+    }
+
     &__icon {
+      display: blocks;
       margin-right: 10px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }

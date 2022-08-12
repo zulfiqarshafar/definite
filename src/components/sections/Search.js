@@ -1,13 +1,14 @@
 import React from "react";
 import "./Search.scss";
 
-function Search({ provinceList, province, setProvince }) {
-  const handleSearchChange = (e) => {
-    const selectedProvince = provinceList.find(
-      (prov) => prov.id == e.target.value
-    );
-    setProvince(selectedProvince);
-  };
+function Search({ provinceList, province, handleSearchChange }) {
+  // const handleSearchChange = (e) => {
+  //   const selectedProvince = provinceList.find(
+  //     (prov) => prov.id == e.target.value
+  //   );
+  //   setProvince(selectedProvince);
+  //   setPage(0);
+  // };
 
   return (
     <section className="search">

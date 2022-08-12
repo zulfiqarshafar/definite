@@ -3,7 +3,7 @@ import DealerItem from "../DealerItem";
 import Modal from "../Modal";
 import "./DealerList.scss";
 
-function DealerList({ dealerList }) {
+function DealerList({ dealerList, handleClickMore }) {
   const [selectedDealer, setSelectedDealer] = useState({});
   const [stringIdx, setStringIdx] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,6 +15,7 @@ function DealerList({ dealerList }) {
     document.querySelector("body").style.overflow = "hidden";
   };
 
+  console.log(dealerList);
   return (
     <section className="dealer-list">
       {dealerList.total > 0 ? (
@@ -29,9 +30,9 @@ function DealerList({ dealerList }) {
               />
             ))}
           </div>
-          {dealerList.total > 9 && (
+          {dealerList.next_page_url && (
             <div className="dealer-list__more">
-              <button>LOAD MORE</button>
+              <button onClick={handleClickMore}>LOAD MORE</button>
             </div>
           )}
         </div>

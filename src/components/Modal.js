@@ -1,4 +1,7 @@
 import React from "react";
+import Email from "./icons/Email";
+import MapIcon from "./icons/MapIcon";
+import Phone from "./icons/Phone";
 import "./Modal.scss";
 import ServiceList from "./ServiceList";
 
@@ -7,7 +10,7 @@ function Modal({ dealer, stringIdx, setIsModalOpen }) {
     <div
       className="modal"
       onClick={(event) => {
-        if (event.target.classList.contains("modal")) {
+        if (event.target.classList.contains("modal__close__icon")) {
           document.querySelector("body").style.overflow = "auto";
           setIsModalOpen(false);
         }
@@ -27,8 +30,14 @@ function Modal({ dealer, stringIdx, setIsModalOpen }) {
               </div>
             </div>
             <div className="modal__info__map">
-              <span>map</span>
-              <p>VIEW DIRECTION</p>
+              <a
+                href={`https://www.google.com/maps/dir/Current+Location/${dealer.latitude},${dealer.longitude}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MapIcon />
+                <p>VIEW DIRECTION</p>
+              </a>
             </div>
             <div className="modal__button">
               <button className="modal__button__test-drive">
@@ -38,13 +47,15 @@ function Modal({ dealer, stringIdx, setIsModalOpen }) {
             </div>
           </div>
 
-          <div className="modal__close">X</div>
+          <div className="modal__close">
+            <span className="modal__close__icon">&times;</span>
+          </div>
         </div>
         <div className="modal__divider"></div>
         <div className="modal__description">
           <div className="modal__schedule">
             <div className="modal__schedule__showroom">
-              <h2>Showroom</h2>
+              <h3>Showroom</h3>
               <ul>
                 {dealer.showroom_operational_hours.map((operational, idx) => (
                   <li key={idx}>
@@ -55,7 +66,7 @@ function Modal({ dealer, stringIdx, setIsModalOpen }) {
               </ul>
             </div>
             <div className="modal__schedule__bengkel">
-              <h2>Bengkel</h2>
+              <h3>Bengkel</h3>
               <ul>
                 {dealer.bengkel_operational_hours.map((operational, idx) => (
                   <li key={idx}>
@@ -67,13 +78,17 @@ function Modal({ dealer, stringIdx, setIsModalOpen }) {
             </div>
           </div>
           <div className="modal__contact">
-            <h2>Contact</h2>
+            <h3>Contact</h3>
             <div className="modal__contact__phone">
-              <span className="modal__contact__icon">icon</span>
+              <span className="modal__contact__icon">
+                <Phone />
+              </span>
               <span>{dealer.phone}</span>
             </div>
             <div className="modal__contact__email">
-              <span className="modal__contact__icon">icon</span>
+              <span className="modal__contact__icon">
+                <Email />
+              </span>
               <span>{dealer.website}</span>
             </div>
           </div>

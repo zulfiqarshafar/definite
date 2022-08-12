@@ -1,5 +1,10 @@
 import React from "react";
 import "./Footer.scss";
+import Email from "./icons/Email";
+import Facebook from "./icons/Facebook";
+import Instagram from "./icons/Instagram";
+import Twitter from "./icons/Twitter";
+import Youtube from "./icons/Youtube";
 
 function Footer() {
   return (
@@ -7,11 +12,21 @@ function Footer() {
       <div className="footer__container">
         <div className="footer__title">STAY CONNECTED WITH US</div>
         <ul className="footer__links">
-          <li>facebook</li>
-          <li>twitter</li>
-          <li>instagram</li>
-          <li>youtube</li>
-          <li>email</li>
+          <li>
+            <Facebook />
+          </li>
+          <li>
+            <Twitter />
+          </li>
+          <li>
+            <Instagram />
+          </li>
+          <li>
+            <Youtube />
+          </li>
+          <li>
+            <Email />
+          </li>
         </ul>
         <div className="footer__description">Contact Us</div>
       </div>

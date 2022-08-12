@@ -1,4 +1,5 @@
 import React from "react";
+import './ServiceList.scss';
 
 function ServiceList({ services }) {
   return (

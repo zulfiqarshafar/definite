@@ -11,6 +11,7 @@
   &__container {
     display: flex;
     flex-direction: column;
+    width: 25%;
     align-items: center;
     text-align: center;
 
@@ -35,6 +36,21 @@
     font-size: 14px;
     font-weight: 700;
     color: rgba(76, 76, 76, 0.5);
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   &__description {
