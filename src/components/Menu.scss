@@ -1,0 +1,36 @@
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: 700;
+
+  &__main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    list-style: none;
+    margin: 0 40px 0 0;
+    padding: 0;
+
+    li {
+      margin-left: 40px;
+
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &__euro {
+    max-height: 80px;
+  }
+
+  &__burger {
+    display: flex;
+    align-items: center;
+    width: 26px;
+    height: 17px;
+  }
+}

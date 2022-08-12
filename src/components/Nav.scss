@@ -18,5 +18,13 @@
   }
 
   &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 24px;
+  }
+
+  &__main {
+    flex: 0 0 50%;
   }
 }
