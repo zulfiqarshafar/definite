@@ -1,0 +1,28 @@
+.dealer-list {
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 38px 40px;
+  }
+
+  &__more {
+    margin-top: 65px;
+
+    button {
+      background-color: black;
+      color: white;
+      width: 130px;
+      height: 48px;
+      font-weight: 700;
+    }
+  }
+}
