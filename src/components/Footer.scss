@@ -23,7 +23,11 @@
       width: 80px;
       min-height: 3px;
       border-radius: 4px;
-      background: linear-gradient(to right, #ff4d00, #da291c);
+      background: linear-gradient(
+        to right,
+        #ff4d00,
+        var(--primary-accent-color)
+      );
     }
 
     &::after {
@@ -35,7 +39,8 @@
     margin-top: 40px;
     font-size: 14px;
     font-weight: 700;
-    color: rgba(76, 76, 76, 0.5);
+    color: var(--secondary-text-color);
+    opacity: 0.5;
   }
 
   &__links {
@@ -55,13 +60,14 @@
 
   &__description {
     margin-bottom: 20px;
-    color: rgb(10, 10, 10);
+    color: var(--third-text-color);
   }
 
   &__copyright {
     margin-top: 40px;
     font-size: 14px;
     font-weight: 500;
-    color: rgba(10, 10, 10, 0.5);
+    color: var(--third-text-color);
+    opacity: 0.5;
   }
 }

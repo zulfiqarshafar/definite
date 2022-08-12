@@ -8,11 +8,11 @@ import MobileBanner from "./components/sections/MobileBanner";
 import "./App.scss";
 
 function App() {
-  const [dealerList, setDealerList] = useState({});
+  const [dealerObject, setDealerObject] = useState({});
+  const [dealerList, setDealerList] = useState([]);
   const [provinceList, setProvincesList] = useState([]);
   const [province, setProvince] = useState({ id: 0 });
-  const [latlong, setLatlong] = useState([null, null]);
-  const [page, setPage] = useState(1);
+  const [queryParams, setQueryParams] = useState({ page: 1, limit: 9 });
 
   useEffect(() => {
     document.title = "Mitsubishi - Find Dealer";
@@ -20,31 +20,21 @@ function App() {
 
   useEffect(() => {
     const getDealerList = async () => {
-      let queryParams = { limit: 9 };
-
-      queryParams.page = page;
-      if (province.id !== 0) {
-        queryParams.keyword = province.name;
-      } else if (latlong[0] && latlong[1]) {
-        queryParams.latlong = `${latlong[0]},${latlong[1]}`;
-      }
-
       let queryString = new URLSearchParams(queryParams).toString();
 
-      // console.log(queryString);
       await fetch(
         `https://mitsubishi.trinix.id/api/frontend/search-dealers?${queryString}`
       )
         .then((response) => response.json())
         .then((data) => {
-          setDealerList(data);
-          // setDealerList((prevState) => [...prevState, ...data.data]);
+          setDealerObject(data);
+          setDealerList((prevState) => [...prevState, ...data.data]);
         })
         .catch((error) => console.log(error));
     };
 
     getDealerList();
-  }, [province, latlong, page]);
+  }, [queryParams]);
 
   useEffect(() => {
     const getProvinceList = async () => {
@@ -62,7 +52,12 @@ function App() {
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        setLatlong([position.coords.latitude, position.coords.longitude]);
+        setDealerObject({});
+        setDealerList([]);
+        setQueryParams((prevState) => ({
+          ...prevState,
+          latlong: `${position.coords.latitude}, ${position.coords.longitude}`,
+        }));
       });
     }
   }, []);
@@ -72,12 +67,13 @@ function App() {
       (prov) => prov.id == e.target.value
     );
     setProvince(selectedProvince);
-    setPage(1);
+    setDealerObject({});
     setDealerList([]);
-  };
-
-  const handleClickMore = () => {
-    setPage(page + 1);
+    setQueryParams({
+      limit: 9,
+      page: 1,
+      keyword: selectedProvince.name,
+    });
   };
 
   return (
@@ -92,8 +88,9 @@ function App() {
             handleSearchChange={handleSearchChange}
           />
           <DealerList
+            dealerObject={dealerObject}
             dealerList={dealerList}
-            handleClickMore={handleClickMore}
+            setQueryParams={setQueryParams}
           />
           <MobileBanner />
         </main>
