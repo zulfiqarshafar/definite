@@ -1,0 +1,73 @@
+.widget {
+  &__open,
+  &__shortcut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    box-sizing: border-box;
+    height: 60px;
+    border-radius: 215px 0 0 215px;
+    bottom: 125px;
+    right: 40px;
+    color: white;
+
+    @media screen and (max-width: 1024px) {
+      bottom: 25px;
+    }
+  }
+
+  &__open {
+    left: 40px;
+    background-color: black;
+  }
+
+  &__shortcut {
+    min-width: 60px;
+    background-color: #ba160a;
+
+    &__icon {
+      font-size: 20px;
+      border: 2px solid white;
+      opacity: 0.5;
+      padding: 0 7px;
+      cursor: pointer;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    ul {
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      width: 100%;
+      margin-right: 40px;
+      font-weight: 500;
+
+      @media screen and (max-width: 1024px) {
+        margin: 0;
+      }
+    }
+  }
+
+  &__close {
+    display: inline-block;
+    position: relative;
+    background-color: #ba160a;
+    padding: 15px;
+
+    &__icon {
+      font-size: 20px;
+      border: 2px solid white;
+      opacity: 0.5;
+      padding: 0 7px;
+      cursor: pointer;
+    }
+  }
+}

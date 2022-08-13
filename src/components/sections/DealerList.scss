@@ -12,6 +12,10 @@
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 38px 40px;
+
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: auto;
+    }
   }
 
   &__more {

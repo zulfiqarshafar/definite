@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Chatbot.scss";
 
 function Chatbot() {
+  const [isChatbotOpen, setIsChatbotOpen] = useState(true);
+
+  const handleToggle = () => {
+    setIsChatbotOpen(!isChatbotOpen);
+  };
+
   return (
-    <div className="chatbot">
-      <span className="chatbot__close">&times;</span>
-      Ask MIRA
-    </div>
+    <>
+      {isChatbotOpen ? (
+        <div className="chatbot__open">
+          <span className="chatbot__close" onClick={handleToggle}>
+            &times;
+          </span>
+          <p>Ask MIRA</p>
+          <div className="chatbot__image">
+            <img src={require("../assets/chatbot.png")} alt="Chatbot" />
+          </div>
+        </div>
+      ) : (
+        <div className="chatbot__shortcut">
+          <div className="chatbot__shortcut__image" onClick={handleToggle}>
+            <img src={require("../assets/chatbot.png")} alt="Chatbot" />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

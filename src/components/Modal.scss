@@ -16,6 +16,11 @@
     margin: auto;
     padding: 30px 27px;
     width: 900px;
+
+    @media screen and (max-width: 1024px) {
+      width: 65vw;
+      height: 65vh;
+    }
   }
 
   &__main {
@@ -109,6 +114,10 @@
       font-weight: 700;
       cursor: pointer;
       transition: 0.2s;
+
+      @media screen and (max-width: 1024px) {
+        width: 200px;
+      }
     }
 
     &__test-drive {
@@ -166,6 +175,10 @@
   &__description {
     margin: 30px 95px;
 
+    @media screen and (max-width: 1024px) {
+      margin: 30px 40px;
+    }
+
     h3 {
       margin: 0 0 12px 0;
       color: #4c4c4c;
@@ -178,6 +191,11 @@
     position: relative;
     width: 100%;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+    }
 
     div {
       display: inline-block;
@@ -192,6 +210,10 @@
 
           span {
             flex: 0 0 50%;
+
+            @media screen and (max-width: 1024px) {
+              flex: 0 0 100%;
+            }
           }
         }
       }

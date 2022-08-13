@@ -1,22 +1,73 @@
 .chatbot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  z-index: 10;
-  width: 175px;
-  height: 60px;
-  border-radius: 215px;
-  bottom: 100px;
-  right: 40px;
-  background-color: #ba160a;
-  color: white;
-  font-weight: 700;
+  &__open,
+  &__shortcut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 60px;
+    bottom: 200px;
+    right: 40px;
+    background-color: #ba160a;
+    color: white;
+    font-weight: 700;
+    overflow: hidden;
+
+    @media screen and (max-width: 1024px) {
+      bottom: 100px;
+    }
+  }
+
+  &__open {
+    max-width: 175px;
+    border-radius: 215px;
+
+    p {
+      position: relative;
+      margin-right: 30px;
+      font-size: 14px;
+    }
+  }
 
   &__close {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: normal;
-
     margin-right: 10px;
+    cursor: pointer;
+  }
+
+  &__image {
+    img {
+      position: absolute;
+      height: 60px;
+      top: 0;
+      right: -2px;
+    }
+  }
+
+  &__shortcut {
+    max-width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    &__image {
+      cursor: pointer;
+
+      img {
+        position: absolute;
+        height: 60px;
+        top: 0;
+        right: -2px;
+      }
+    }
+  }
+
+  &__open,
+  &__shortcut {
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
   }
 }

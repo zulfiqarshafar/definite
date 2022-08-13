@@ -10,9 +10,16 @@
     margin: 0 90px;
   }
 
-  &__title {
+  &__title,
+  &__description {
     flex: 0 0 50%;
 
+    @media screen and (max-width: 1024px) {
+      flex: 0 0 100%;
+    }
+  }
+
+  &__title {
     h1 {
       font-size: 3em;
       margin: 0;
@@ -20,8 +27,6 @@
   }
 
   &__description {
-    flex: 0 0 50%;
-
     p {
       margin: 0;
     }
