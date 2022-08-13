@@ -1,6 +1,11 @@
 ## Definite
 
-Made with Create React App
+Stack:
+
+- React JS
+- Create React App
+- Sass
+- CSS
 
 ## Setup
 
